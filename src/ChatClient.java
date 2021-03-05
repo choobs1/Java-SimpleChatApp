@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.Console;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
@@ -7,6 +6,8 @@ import java.net.Socket;
 public class ChatClient {
 
     public static void main(String[] args) {
+        int portNumber = 14001;
+        String ip = "localhost";
         Socket socket = null;
         System.out.println("Enter userName: ");
         String userName = null;
@@ -15,9 +16,26 @@ public class ChatClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int portNumber = 5050;
+        if (args.length < 2){
+            System.out.println("No arguments provided, default value is used");
+            System.out.println("Server started on port: " + portNumber + " and ip: " + ip);
+        } else if (args[2].equals("-ccp") && args[0].equals("-cca")) {
+            portNumber = Integer.parseInt(args[3]);
+            ip = args[1];
+            System.out.println("Server started on port: " + portNumber + " and ip: " + ip);
+        } else if (args[0].equals("-ccp")){
+            portNumber = Integer.parseInt(args[1]);
+            System.out.println("Server started on port: " + portNumber + " and ip: " + ip);
+        } else if (args[0].equals("-cca")){
+            ip = args[1];
+            System.out.println("Server started on port: " + portNumber + " and ip: " + ip);
+        } else {
+            System.err.println("Wrong command line arguments, default port and ip is used");
+            System.out.println("Server started on port: " + portNumber + " and ip: " + ip);
+        }
+
         try {
-            socket = new Socket ("localhost",portNumber);
+            socket = new Socket (ip,portNumber);
             Thread.sleep(1000);
             Thread server = new Thread(new ServerThread(socket,userName));
             server.start();
