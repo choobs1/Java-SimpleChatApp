@@ -19,17 +19,20 @@ public class ChatClient {
         if (args.length < 2){
             System.out.println("No arguments provided, default value is used");
             System.out.println("Server started on port: " + portNumber + " and ip: " + ip);
-        } else if (args[2].equals("-ccp") && args[0].equals("-cca")) {
-            portNumber = Integer.parseInt(args[3]);
-            ip = args[1];
-            System.out.println("Server started on port: " + portNumber + " and ip: " + ip);
         } else if (args[0].equals("-ccp")){
             portNumber = Integer.parseInt(args[1]);
+            if (args[2].equals("-cca")){
+                ip = args[3];
+            }
             System.out.println("Server started on port: " + portNumber + " and ip: " + ip);
         } else if (args[0].equals("-cca")){
             ip = args[1];
+            if (args[2].equals("-ccp")){
+                portNumber = Integer.parseInt(args[3]);
+            }
             System.out.println("Server started on port: " + portNumber + " and ip: " + ip);
-        } else {
+        }
+        else {
             System.err.println("Wrong command line arguments, default port and ip is used");
             System.out.println("Server started on port: " + portNumber + " and ip: " + ip);
         }
