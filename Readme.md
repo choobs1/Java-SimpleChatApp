@@ -1,4 +1,4 @@
-**Multi-Threaded Simple Chatting System**
+# Multi-Threaded Simple Chatting System
 
 A java application which uses Java threads to handle connecting to multiple clients through Tcp/IP protocol provided with Java Sockets. The App has two main files: ChatServer.java and ChatClient.java. The ChatServer creates a client thread to handle client inputs, it uses the runnable interface for this. Similarly the ChatClient uses a ServerThread to handle data transfer between the server and itself.
 
@@ -24,8 +24,8 @@ To use different ip use argument `-cca [IP ADDRESS ]` and to use a different por
 
 If one wishes to shut down the client while using they can type the EXIT command into the chat and the client should close.
 
-Note: Server keeps running until closed on its own.
+## Additional functionality
+Furthermore, a basic bot has been made which replies with *hmm* when the user types *Bot Sup.*
 
--> Furthermore, a basic bot has been made which replies with *hmm* when the user types *Bot Sup.*
+_Note_: Server keeps running until closed on its own.
 
-**NOTE:** You must compile the .java files into .class files for them to work.
