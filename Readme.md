@@ -6,27 +6,21 @@ The server creates a new Thread each time it has a new device connected to it an
 
 The app has the functionality to allow multiple users to talk to each other. To start the app, one must start the server first:
 
-`	`You may do so by entering the following command into the command line after you are in the directory of the files:
+You may do so by entering the following command into the command line after you are in the directory of the files. It will then start the chat server on a default port: 14001:
 
-`		`java ChatServer
+`java ChatServer`
 
-`	`It will then start the chat server on a default port: 14001
+If you chose to start it on a different port you must do as follows:
 
-`	`If you chose to start it on a different port you must do as follows:
-
-`		`java ChatServer -csp [PORT NUMBER]
+`java ChatServer -csp [PORT NUMBER]`
 
 Next we start the chat client by inputting the command:
 
-`		`java ChatClient
+`java ChatClient`
 
-`	`It will start the client on port 14001 and the localhost ip.
+To use different ip use argument `-cca [IP ADDRESS ]` and to use a different port use `-ccp [PORT]`. You may use both arguments together as such:
 
-`	`To use different ip use argument -cca [IP ADDRESS ] and to use a different port use -ccp [PORT]
-
-`	`You may use both arguments together as such:
-
-`		`java ChatClient -cca [IP] -ccp [Port]
+`java ChatClient -cca [IP] -ccp [Port]`
 
 If one wishes to shut down the client while using they can type the EXIT command into the chat and the client should close.
 
